@@ -1,8 +1,12 @@
 import cv2
 import numpy as np
 from keras.models import load_model
+import joblib
+import sklearn
+print(sklearn.__version__)
 
-model = load_model('garbage_classification_model.h5')
+
+loaded_rf_classifier = joblib.load('random_forest_model.pkl')
 
 cap = cv2.VideoCapture(1)  
 
