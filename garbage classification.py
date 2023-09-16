@@ -48,7 +48,7 @@ model = Sequential([  #for sequential layers
     MaxPooling2D(2, 2),
     Flatten(),   #reshapes into a 1D array
     Dense(128, activation='relu'),
-    Dropout(0.5),  #prevents overtraining the model, drops some of the units to avoid overfitting
+    Dropout(0.2),  #prevents overtraining the model, drops some of the units to avoid overfitting
     Dense(6, activation='softmax')  # Output layer with 6 classes, one for each garbage type
 ])
 
@@ -57,7 +57,7 @@ model = Sequential([  #for sequential layers
 model.compile(optimizer=Adam(learning_rate=0.0001), loss='categorical_crossentropy', metrics=['accuracy'])
 
 # Train the model
-epochs = 20  # goes through the data set 20 times
+epochs = 30  # goes through the data set 20 times
 history = model.fit(
     train_generator,
     steps_per_epoch=train_generator.samples // batch,
